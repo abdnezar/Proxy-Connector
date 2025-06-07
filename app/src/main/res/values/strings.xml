@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Proxy App</string>
+    <string name="proxy_settings">Proxy Settings</string>
+    
+    <!-- Main Activity -->
+    <string name="start_proxy">Start Proxy</string>
+    <string name="stop_proxy">Stop Proxy</string>
+    <string name="proxy_status">Proxy Status: %1$s</string>
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_connected">Connected</string>
+    <string name="settings">Settings</string>
+    
+    <!-- Proxy Settings Activity -->
+    <string name="proxy_host">Proxy Host</string>
+    <string name="proxy_port">Proxy Port</string>
+    <string name="proxy_username">Username (Optional)</string>
+    <string name="proxy_password">Password (Optional)</string>
+    <string name="proxy_type">Proxy Type</string>
+    <string name="save">Save</string>
+    <string name="settings_saved">Settings saved</string>
+    
+    <!-- Proxy Types -->
+    <string name="proxy_type_http">HTTP</string>
+    <string name="proxy_type_socks">SOCKS</string>
+    
+    <!-- Notifications -->
+    <string name="notification_channel_name">Proxy VPN Service</string>
+    <string name="notification_title">Proxy VPN Active</string>
+    <string name="notification_text">Routing traffic through %1$s:%2$d</string>
+    
+    <!-- Error Messages -->
+    <string name="error_vpn_permission">VPN permission is required</string>
+    <string name="error_invalid_host">Please enter a valid host</string>
+    <string name="error_invalid_port">Please enter a valid port (1-65535)</string>
+    <string name="error_vpn_setup">Failed to set up VPN</string>
+</resources>
+
