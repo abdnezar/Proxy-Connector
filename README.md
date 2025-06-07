@@ -1,70 +1,78 @@
-# Android Proxy App
+# Proxy Connector
 
-A system-wide proxy application for Android that uses VPN service to route all device traffic through a configured proxy server.
+تطبيق Android لتوجيه حركة مرور الجهاز عبر خادم وكيل (Proxy) باستخدام خدمة VPN.
 
-## Features
+## الميزات
 
-- Route all device traffic through a proxy server
-- Support for HTTP and SOCKS proxies
-- Optional proxy authentication
-- No root access required
-- Simple and intuitive user interface
+* توجيه جميع حركة مرور الجهاز عبر خادم وكيل
+* دعم لبروتوكولات HTTP و SOCKS
+* مصادقة اختيارية للوكيل
+* لا يتطلب صلاحيات الجذر (Root)
+* واجهة مستخدم بسيطة وسهلة الاستخدام
 
-## Requirements
+## متطلبات النظام
 
-- Android 5.0 (API level 21) or higher
-- Android Studio 4.0 or higher
+* Android 5.0 (API level 21) أو أحدث
+* Android Studio 4.0 أو أحدث
 
-## Building the App
+## بناء المشروع يدوياً
 
-1. Clone or download this repository
-2. Open the project in Android Studio
-3. Wait for Gradle sync to complete
-4. Build the app using the "Build > Build Bundle(s) / APK(s) > Build APK(s)" menu option
-5. The APK will be generated in `app/build/outputs/apk/debug/app-debug.apk`
+1. قم بنسخ أو تنزيل هذا المستودع
+2. افتح المشروع في Android Studio
+3. انتظر حتى يكتمل مزامنة Gradle
+4. قم ببناء التطبيق باستخدام خيار القائمة "Build > Build Bundle(s) / APK(s) > Build APK(s)"
+5. سيتم إنشاء ملف APK في `app/build/outputs/apk/debug/app-debug.apk`
 
-## Installation
+## التثبيت
 
-1. Enable "Install from Unknown Sources" in your Android device settings
-2. Transfer the APK to your device
-3. Install the APK by tapping on it
-4. Follow the on-screen instructions to complete installation
+1. قم بتمكين "التثبيت من مصادر غير معروفة" في إعدادات جهاز Android الخاص بك
+2. انقل ملف APK إلى جهازك
+3. قم بتثبيت APK بالنقر عليه
+4. اتبع التعليمات التي تظهر على الشاشة لإكمال التثبيت
 
-## Usage
+## الاستخدام
 
-1. Open the app
-2. Tap on "Settings" to configure your proxy
-3. Enter your proxy server details:
-   - Host: The hostname or IP address of your proxy server
-   - Port: The port number of your proxy server
-   - Type: HTTP or SOCKS
-   - Username/Password: Optional authentication credentials
-4. Tap "Save" to save your settings
-5. Return to the main screen and tap "Start Proxy" to enable the proxy
-6. Accept the VPN connection request when prompted
-7. All device traffic will now be routed through your proxy server
-8. To disable the proxy, tap "Stop Proxy"
+1. افتح التطبيق
+2. انقر على "الإعدادات" لتكوين الوكيل الخاص بك
+3. أدخل تفاصيل خادم الوكيل الخاص بك:
+   * المضيف: اسم المضيف أو عنوان IP لخادم الوكيل الخاص بك
+   * المنفذ: رقم المنفذ لخادم الوكيل الخاص بك
+   * النوع: HTTP أو SOCKS
+   * اسم المستخدم/كلمة المرور: بيانات اعتماد المصادقة الاختيارية
+4. انقر على "حفظ" لحفظ إعداداتك
+5. عد إلى الشاشة الرئيسية وانقر على "بدء الوكيل" لتمكين الوكيل
+6. اقبل طلب اتصال VPN عند المطالبة
+7. سيتم الآن توجيه جميع حركة مرور الجهاز عبر خادم الوكيل الخاص بك
+8. لتعطيل الوكيل، انقر على "إيقاف الوكيل"
 
-## Implementation Notes
+## التنفيذ التقني
 
-This app uses Android's VpnService API to create a local VPN that captures all device traffic and routes it through the configured proxy server. The implementation includes:
+يستخدم هذا التطبيق واجهة برمجة تطبيقات VpnService في Android لإنشاء VPN محلي يلتقط جميع حركة مرور الجهاز ويوجهها عبر خادم الوكيل المكون. يتضمن التنفيذ:
 
-1. **ProxyConfig**: Manages proxy configuration settings
-2. **ProxyVpnService**: Implements the VPN service that captures and routes traffic
-3. **MainActivity**: Provides the main user interface
-4. **ProxySettingsActivity**: Allows users to configure proxy settings
+1. **ProxyConfig**: يدير إعدادات تكوين الوكيل
+2. **ProxyVpnService**: ينفذ خدمة VPN التي تلتقط وتوجه حركة المرور
+3. **MainActivity**: يوفر واجهة المستخدم الرئيسية
+4. **ProxySettingsActivity**: يسمح للمستخدمين بتكوين إعدادات الوكيل
 
-### Important Note About Packet Processing
+### ملاحظة مهمة حول معالجة الحزم
 
-The current implementation includes a placeholder for packet processing. In a production app, you would need to use a library like `tun2socks` to handle the actual packet processing and forwarding to the proxy server.
+التنفيذ الحالي يتضمن عنصر نائب لمعالجة الحزم. في تطبيق الإنتاج، ستحتاج إلى استخدام مكتبة مثل `tun2socks` للتعامل مع المعالجة الفعلية للحزم وإعادة توجيهها إلى خادم الوكيل.
 
-## Limitations
+## القيود
 
-- The app cannot route traffic from other VPN apps
-- Some apps may detect and block VPN usage
-- Performance may be affected due to the overhead of processing all network traffic
+* لا يمكن للتطبيق توجيه حركة المرور من تطبيقات VPN أخرى
+* قد تكتشف بعض التطبيقات وتحظر استخدام VPN
+* قد يتأثر الأداء بسبب العبء الإضافي لمعالجة جميع حركة مرور الشبكة
 
-## License
+## الترخيص
 
-This project is licensed under the MIT License - see the LICENSE file for details.
+هذا المشروع مرخص بموجب ترخيص MIT - راجع ملف LICENSE للحصول على التفاصيل.
+
+## تنزيل APK
+
+يمكنك تنزيل أحدث إصدار من APK من قسم [الإصدارات](https://github.com/abdnezar/Proxy-Connector/releases) في هذا المستودع.
+
+## المساهمة
+
+نرحب بالمساهمات! يرجى الشعور بالحرية في فتح مشكلة أو إرسال طلب سحب.
 
